@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="./assets/CSS file/header.css">
   <link rel="stylesheet" href="./assets/CSS file/dashboard.css">
   <link rel="stylesheet" href="./assets/CSS file/room.css">
-  <!-- <link rel="stylesheet" href="./assets/CSS file/footer.css"> -->
-
+  <link rel="stylesheet" href="./assets/CSS file/footer.css">
+	<link rel="stylesheet" type="text/css" href="./assets/CSS file/main.css">
   <link href="./assets/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <style>
     @media (max-width: 655.98px) {
@@ -127,37 +127,37 @@
   <div class="sidebar" id="sidebar">
     <ul>
       <li>
-        <a href="dashboard.html">
+        <a class="active" href="dashboard.html">
           <span class="icon"><img class="sidebar-icon-img" src="./assets/images/dashboard.png" alt=""></span>
           <span class="text">ダッシュボード</span>
         </a>
       </li>
       <li>
-        <a href="room.html">
+        <a class="active" href="room.html">
           <span class="icon"><img class="sidebar-icon-img" src="./assets/images/door-open.png" alt=""></span>
           <span class="text">部屋設定</span>
         </a>
       </li>
       <li>
-        <a href="thermometer.html">
+        <a class="active" href="thermometer.html">
           <span class="icon"><img class="sidebar-icon-img" src="./assets/images/thermometer.png" alt=""></span>
           <span class="text">設定</span>
         </a>
       </li>
       <li>
-        <a href="analysis.html">
+        <a class="active" href="analysis.html">
           <span class="icon"><img class="sidebar-icon-img" src="./assets/images/market-research.png" alt=""></span>
           <span class="text">分析</span>
         </a>
       </li>
       <li>
-        <a href="user.html">
+        <a class="active" href="user.html">
           <span class="icon"><img class="sidebar-icon-img" src="./assets/images/man.png" alt=""></span>
           <span class="text">ユーザ</span>
         </a>
       </li>
       <li>
-        <a href="index.html">
+        <a class="active" href="index.html">
           <span class="icon"><img class="sidebar-icon-img" src="./assets/images/log-out.png" alt=""></span>
           <span class="text">ログアウト</span>
         </a>
@@ -167,7 +167,7 @@
   <main class="main_content">
     <div class="container-fluid text-start">
       <div class="d-flex justify-content-end mt-3 p-3">
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">施設追加</button>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#add_room_modal">施設追加</button>
       </div>
       <div class="row justify-content-center">
         <div class="table-responsive table-list col-xxl-10 col-xl-7 col-lg-10 col-md-10 ">
@@ -200,8 +200,10 @@
                     <label for="" class="onbtn">ON</label>
                     <label for="" class="ofbtn">OFF</label>
                 </td>
-                <td data-label="アクション"><span class="room_update">編集</span><span> | </span><span
-                    class="room_delete">削除</span></td>
+                <td data-label="アクション"><span class="room_update"><button type="button" class="room_update" data-bs-toggle="modal" data-bs-target="#update_room_modal">編集
+                </button></span><span> | </span><span
+                  class="room_delete"><button type="button" class="room_delete" data-bs-toggle="modal" data-bs-target="#delete_room_modal">削除
+                  </button></span></td>
               </tr>
               <tr>
                 <td data-label="No"></td>
@@ -218,8 +220,10 @@
                     <label for="" class="ofbtn">OFF</label>
                   </div>
                 </td>
-                <td data-label="アクション"><span class="room_update">編集</span><span> | </span><span
-                    class="room_delete">削除</span></td>
+                <td data-label="アクション"><span class="room_update"><button type="button" class="room_update" data-bs-toggle="modal" data-bs-target="#update_room_modal">編集
+                </button></span><span> | </span><span
+                  class="room_delete"><button type="button" class="room_delete" data-bs-toggle="modal" data-bs-target="#delete_room_modal">削除
+                  </button></span></td>
               </tr>
               <tr>
                 <td data-label="No"></td>
@@ -236,8 +240,10 @@
                     <label for="" class="ofbtn">OFF</label>
                   </div>
                 </td>
-                <td data-label="アクション"><span class="room_update">編集</span><span> | </span><span
-                    class="room_delete">削除</span></td>
+                <td data-label="アクション"><span class="room_update"><button type="button" class="room_update" data-bs-toggle="modal" data-bs-target="#update_room_modal">編集
+                  </button></span><span> | </span><span
+                    class="room_delete"><button type="button" class="room_delete" data-bs-toggle="modal" data-bs-target="#delete_room_modal">削除
+                    </button></span></td>
               </tr>
             </tbody>
           </table>
@@ -248,15 +254,107 @@
   <footer class="footer">
     <p class="text-end">&copy; copyrights BEAM Technology</p>
   </footer>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="add_room_modal" tabindex="-1" aria-labelledby="add_room_modalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">施設追加</h1>
+        <h1 class="modal-title fs-5" id="add_room_modalLabel">施設追加</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h4>kk</h4>
+        <form>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="text" value="" required>
+						<span class="focus-input100" data-placeholder="施設名"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="text" value="" required>
+						<span class="focus-input100" data-placeholder="部屋名"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="text" value="" required>
+						<span class="focus-input100" data-placeholder="換気指数"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="number" name="text" value="" required>
+						<span class="focus-input100" data-placeholder="温度"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="text" value="" required>
+						<span class="focus-input100" data-placeholder="湿度"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="text" value="" required>
+						<span class="focus-input100" data-placeholder="二酸化炭素"></span>
+					</div>
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">閉じる</button>
+        <button type="button" class="btn" data-bs-dismiss="modal">送信</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="update_room_modal" tabindex="-1" aria-labelledby="update_room_modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="update_room_modalLabel">施設編集</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="email" value="" required>
+						<span class="focus-input100" data-placeholder="施設名"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="email" value="" required>
+						<span class="focus-input100" data-placeholder="部屋名"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="email" value="" required>
+						<span class="focus-input100" data-placeholder="換気指数"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="email" value="" required>
+						<span class="focus-input100" data-placeholder="温度"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="email" value="" required>
+						<span class="focus-input100" data-placeholder="湿度"></span>
+					</div>
+          <div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="email" value="" required>
+						<span class="focus-input100" data-placeholder="二酸化炭素"></span>
+					</div>
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">閉じる</button>
+        <button type="button" class="btn" data-bs-dismiss="modal">送信</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="delete_room_modal" tabindex="-1" aria-labelledby="delete_room_modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 delete_action_modal" id="delete_room_modalLabel">施設削除</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 class="">施設を削除してもよろしいですか？</h6>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" data-bs-dismiss="modal">閉じる</button>
@@ -265,14 +363,14 @@
     </div>
   </div>
 </div>
-  <script>
+  <!-- <script>
     fetch('header.html')
       .then(response => response.text())
       .then(content => {
         document.getElementById('header').innerHTML = content;
       })
       .catch(error => console.error('Error fetching header content:', error));
-  </script>
+  </script> -->
   <script src="./assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
